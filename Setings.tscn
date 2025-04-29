@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfesmn6ekyh25"]
+
+[ext_resource type="Texture2D" uid="uid://cn3xjpyc6xk42" path="res://заброшка.jpg" id="1_oy3y2"]
+
+[sub_resource type="Texture2DRD" id="Texture2DRD_aboei"]
+
+[sub_resource type="GDScript" id="GDScript_5rsfp"]
+script/source = "extends Button
+
+func _ready():
+	# Подключаем сигнал pressed() к функции
+	pressed.connect(_on_button_pressed)
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file(\"res://Menu.tscn\")
+"
+
+[node name="Setings" type="Node2D"]
+
+[node name="Заброшка" type="Sprite2D" parent="."]
+position = Vector2(959.921, 540)
+scale = Vector2(1.77852, 1.5126)
+texture = ExtResource("1_oy3y2")
+
+[node name="Button" type="Button" parent="Заброшка"]
+offset_left = -120.0
+offset_top = 207.0
+offset_right = 120.0
+offset_bottom = 278.0
+text = "Выйти из настроек
+"
+icon = SubResource("Texture2DRD_aboei")
+script = SubResource("GDScript_5rsfp")
